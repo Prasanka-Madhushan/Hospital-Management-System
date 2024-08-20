@@ -3,10 +3,10 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main  # Trigger on push to the main branch
+      - main
   pull_request:
     branches:
-      - main  # Trigger on pull requests to the main branch
+      - main
 
 jobs:
   build:
@@ -19,7 +19,10 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '16'  # Specify the version of Node.js
+        node-version: '16'
+
+    - name: Change to React app directory
+      run: cd path_to_your_react_app_directory  # Change this to your directory
 
     - name: Install dependencies
       run: npm install
