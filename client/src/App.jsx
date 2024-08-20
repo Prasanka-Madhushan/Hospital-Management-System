@@ -15,10 +15,10 @@ import UpdateDoctor from './pages/patient/UpdateDoctor'
 import AddService from './pages/Service/AddService'
 import ServicesPg from './pages/Service/ServicesPg'
 import UpdateService from './pages/Service/UpdateService'
-import { LoginNav } from "./Components/LoginNav";
-import { LoginHome } from "./Components/LoginHome";
-import { Login } from "./Components/Login";
-import { SignUp } from "./Components/SignUp";
+import { LoginNav } from "./components/LoginNav";
+import { LoginHome } from "./components/LoginHome";
+import { Login } from "./components/Login";
+import { SignUp } from "./components/SignUp";
 
 
 
