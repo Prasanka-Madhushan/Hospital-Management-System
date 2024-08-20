@@ -22,7 +22,7 @@ jobs:
         node-version: '16'
 
     - name: Change to React app directory
-      run: cd path_to_your_react_app_directory  # Change this to your directory
+      run: client
 
     - name: Install dependencies
       run: npm install
