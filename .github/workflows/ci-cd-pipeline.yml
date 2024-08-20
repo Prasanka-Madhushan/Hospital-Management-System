@@ -25,16 +25,16 @@ jobs:
       # Install and build the client application
       - name: Install client dependencies
         run: npm install
-        working-directory: Hospital-Management-System/client  # Ensure this path is correct
+        working-directory: client  
 
       - name: Build client application
         run: npm run build
-        working-directory: Hospital-Management-System/client  # Ensure this path is correct
+        working-directory: client 
 
       # Install server dependencies
       - name: Install server dependencies
         run: npm install
-        working-directory: Hospital-Management-System/server  # Ensure this path is correct
+        working-directory: server 
 
   deploy:
     runs-on: ubuntu-latest
@@ -51,14 +51,14 @@ jobs:
 
       - name: Install client dependencies
         run: npm install
-        working-directory: Hospital-Management-System/client  # Ensure this path is correct
+        working-directory: client  
 
       - name: Build client application
         run: npm run build
-        working-directory: Hospital-Management-System/client  # Ensure this path is correct
+        working-directory: client  
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: Hospital-Management-System/client/build  # Ensure this path is correct
+          publish_dir: client/build 
