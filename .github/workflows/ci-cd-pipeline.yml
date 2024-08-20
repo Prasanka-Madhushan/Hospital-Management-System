@@ -1,3 +1,4 @@
+# .github/workflows/ci.yml
 name: CI/CD Pipeline
 
 on:
@@ -16,17 +17,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set working directory
-        run: cd server
+      - name: Install client dependencies
+        run: npm install --prefix Hospital-Management-System/client
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install server dependencies
+        run: npm install --prefix Hospital-Management-System/server
 
-      - name: Run tests
-        run: npm test
+      - name: Run client tests
+        run: npm test --prefix Hospital-Management-System/client
 
-      - name: Build the application
-        run: npm run build
+      - name: Run server tests
+        run: npm test --prefix Hospital-Management-System/server
+
+      - name: Build the client application
+        run: npm run build --prefix Hospital-Management-System/client
 
   deploy:
     runs-on: ubuntu-latest
@@ -36,18 +40,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set working directory
-        run: cd client
+      - name: Install client dependencies
+        run: npm install --prefix Hospital-Management-System/client
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build the application
-        run: npm run build
+      - name: Build the client application
+        run: npm run build --prefix Hospital-Management-System/client
 
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          publish_dir: Hospital-Management-System/client/build
